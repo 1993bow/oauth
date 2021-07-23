@@ -6,8 +6,6 @@ class Google_Authenticate
 {
     /**
      * Google_Authenticate constructor.
-     * @param string $redirectUri
-     * @param string $config
      * @throws \Google\Exception
      */
     public function __construct(  )
@@ -18,22 +16,6 @@ class Google_Authenticate
         $this->client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
     }
 
-    /**
-     * @param array $values
-     */
-    public function set( $values = array() ) {
-
-        foreach ( $values as $key => $value ) {
-            $this->$key = $value;
-        }
-    }
-
-    /**
-     * @return $this
-     */
-    public function get() {
-        return $this;
-    }
     public function authenticate( string $code ) {
 
         $this->client->authenticate($code);
@@ -64,9 +46,6 @@ class Google_Authenticate
             echo '<button><a href="' . $auth_url . '">login</a>';
         }
     }
-
-
-
 
 }
 
